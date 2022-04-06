@@ -58,5 +58,5 @@ information of any product including price and stock, admin status of users, sta
 ![image](https://user-images.githubusercontent.com/91191123/162048576-3d912ac2-3b0f-42f9-9b8c-6c82639bae96.png)
 ![image](https://user-images.githubusercontent.com/91191123/162048655-3909d1f6-1ab2-47c2-8af5-48090f09ddbb.png)
 
-Note: For the best experience, we suggest you to use zanshop 100% zoom.
-Note2: Website may be slow since it uses free hosting service.
+- Note: For the best experience, we suggest you to use zanshop 100% zoom.
+- Note2: Website may be slow since it uses free hosting service.
