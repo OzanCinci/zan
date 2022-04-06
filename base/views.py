@@ -325,9 +325,9 @@ def createReview(request,pk):
             username=data["username"],
         )
 
-        num = product.numReviews
-        totalRate =product.rating * num
-        totalRate+=data["rating"]
+        num = int(product.numReviews)
+        totalRate =int(product.rating) * num
+        totalRate+=int(data["rating"])
         num+=1
 
         product.numReviews = num
