@@ -1,0 +1,52 @@
+#row-thing {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+
+#container{
+  margin-left:35vw;
+  padding-bottom:15vh;
+}
+#container h5{
+  color:white;
+  cursor:pointer;
+}
+#slide-p  p{
+  color:white;
+  cursor:pointer;
+}
+#slide-img{
+  max-height: 300px;
+  width: auto;
+  display: block;
+  position: relative;
+  left: 10%;
+  border-radius: 50%;
+}
+
+@media  screen and (max-width:900px){
+  #carousel{
+    height: 400px;
+  }
+  #slide-p{
+    display: none;
+  }
+  #slide-p div{
+    display: block;
+  }
+  #slide-img{
+    position:unset;
+    display: inline-block;
+  }
+  #container{
+    position: absolute;
+    top: -330px;
+    width: 600px;
+    left: -320px;
+  }
+  #container h5{
+    color:white
+  }
+}

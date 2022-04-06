@@ -1,0 +1,16 @@
+.oneBlock {
+  max-width: 900px;
+  margin: 10px auto;
+}
+.cartCol2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+}
+.cartCol3 button {
+  max-width: 120px;
+  text-align: center;
+  margin: 3px auto;
+}

@@ -1,0 +1,31 @@
+.colNo3 {
+  max-width: 250px;
+  margin: 15px auto;
+}
+.colNo2 {
+  max-width: 550px;
+  margin: 15px auto;
+  text-align: left;
+}
+#goback-btn {
+  float: left;
+  border-radius: 5px;
+}
+
+.colNo1 {
+  margin: 0 auto;
+  clear: both;
+}
+.amount-btn {
+  border: none;
+  font-size: 1rem;
+}
+.amount-btn:active {
+  border: none;
+}
+
+#amount-btn-parent {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 2px;
+}

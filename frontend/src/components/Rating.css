@@ -1,0 +1,7 @@
+.checked {
+  color: rgb(223, 223, 46);
+}
+#vote-num {
+  font-size: 0.7rem;
+  color: black;
+}
