@@ -68,7 +68,7 @@ def getProducts(request):
             Q(name__icontains=data['query'])|Q(brand__icontains=data['query'])|Q(category__icontains=data['query'])
         )
 
-    p = Paginator(products,4)
+    p = Paginator(products,6)
     if data == {} or data["pageNumber"]==None:
         pageNumber = 1
     else:
