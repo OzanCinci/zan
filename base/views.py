@@ -325,11 +325,21 @@ def createReview(request,pk):
             username=data["username"],
         )
 
+        num = product.numReviews
+        totalRate =product.rating * num
+        totalRate+=data["rating"]
+        num+=1
+
+        product.numReviews = num
+        product.rating = totalRate/num
+        product.save()
+
+        '''
         totalRate =product.rating * product.numReviews
         product.numReviews+=1
         product.rating=(totalRate+data["rating"])/product.numReviews
         product.save()
-
+        '''
         return Response("New review added.")
     except:
         return Response({"detail":"something goes wrong 'createReview function'"},status=status.HTTP_400_BAD_REQUEST)
