@@ -16,7 +16,6 @@ export const AddReviewAction = (token,dataObj,id)=>async(dispatch)=>{
 axios.request(configObject ).then((res) => {
     dispatch({type:'REVIEW_ADD_SUCCESS'})
 }).catch(error=>{
-    console.log("err",error)
     dispatch({type:'REVIEW_ADD_FAIL',
         payload: error.response && error.response.data.detail
             ? error.response.data.detail

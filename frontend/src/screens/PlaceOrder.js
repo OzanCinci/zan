@@ -18,7 +18,6 @@ export default function PlaceOrder() {
     const {success,error,order} = orderCreate
     const [fullAddress,setFullAddress]=useState("")
     const {shippingAdress,paymentMethod,CartItemsArray,TotalCost} = CartItems
-    console.log("TotalCost: ",TotalCost)
 
     const handleConfirm = (e)=>{
         e.preventDefault()

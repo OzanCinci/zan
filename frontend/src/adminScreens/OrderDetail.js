@@ -23,9 +23,7 @@ export default function OrderDetail() {
     const {userInfo} = login
     const { currentUser } = profile
     
-    console.log("loop control profile!")
     useEffect(()=>{
-        console.log("id: ",id)
         if(!userInfo || !userInfo.isAdmin){
             navigate('/')
         }

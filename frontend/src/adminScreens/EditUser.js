@@ -33,8 +33,6 @@ export default function EditUser() {
         }
     }
 
-    
-    console.log("loop control edit-user!")
     useEffect(()=>{
        if (!userInfo.isAdmin){
             navigate('/')

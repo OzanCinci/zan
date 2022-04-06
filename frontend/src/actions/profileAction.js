@@ -15,7 +15,6 @@ export const profileAction = (token)=> async(dispatch)=>{
 axios.request(configObject ).then((res) => {
     dispatch({type:'LOAD_PROFILE',payload:res.data})
 }).catch(error=>{
-    console.log("err",error)
     dispatch({type:'FAIL_PROFILE',
         payload: error.response && error.response.data.detail
             ? error.response.data.detail

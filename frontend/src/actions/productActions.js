@@ -12,7 +12,6 @@ import {
 
 export const listProducts = (q,pageNumber) =>async(dispatch)=> {
     dispatch({type:PRODUCT_LIST_REQUEST})
-    console.log("burraaaa : ",pageNumber)
     if (!pageNumber){
         pageNumber=1
     }
@@ -28,7 +27,6 @@ export const listProducts = (q,pageNumber) =>async(dispatch)=> {
             'pageNumber':pageNumber,
         }
     }
-    console.log("asdasd: ",configObject.data)
     
      axios.request(configObject ).then((res) => {
         dispatch({type:PRODUCT_LIST_SUCCES,payload:res.data})

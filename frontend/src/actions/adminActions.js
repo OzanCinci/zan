@@ -16,7 +16,6 @@ export const adminUsersAction=(token)=>async(dispatch)=>{
      axios.request(configObject ).then((res) => {
          dispatch({type:'ADMIN_USERS_SUCCESS',payload:res.data})
      }).catch(error=>{
-         console.log("err",error)
          dispatch({type:'ADMIN_USERS_FAIL',
              payload: error.response && error.response.data.detail
                  ? error.response.data.detail
@@ -40,7 +39,6 @@ export const deleteUser=(token,id)=>async(dispatch)=>{
      axios.request(configObject ).then(() => {
          dispatch({type:'ADMIN_USERS_DELETE'})
      }).catch(error=>{
-         console.log("err",error)
          dispatch({type:'ADMIN_USERS_FAIL',
              payload: error.response && error.response.data.detail
                  ? error.response.data.detail
@@ -65,7 +63,6 @@ export const adminUserAction=(token,pk)=>async(dispatch)=>{
      axios.request(configObject ).then((res) => {
          dispatch({type:'ADMIN_USER_SUCCESS',payload:res.data})
      }).catch(error=>{
-         console.log("err",error)
          dispatch({type:'ADMIN_USER_FAIL',
              payload: error.response && error.response.data.detail
                  ? error.response.data.detail
@@ -90,7 +87,6 @@ export const adminUpdateUserAction=(token,pk,dataObj)=>async(dispatch)=>{
      axios.request(configObject ).then((res) => {
          dispatch({type:'ADMIN_UPDATE_SUCCESS',payload:res.data})
      }).catch(error=>{
-         console.log("err",error)
          dispatch({type:'ADMIN_USER_FAIL',
              payload: error.response && error.response.data.detail
                  ? error.response.data.detail
@@ -109,7 +105,7 @@ export const deleteProduct=(token,id)=>async(dispatch)=>{
              }
          }
      
-     axios.request(configObject ).then(() => {}).catch(error=>{console.log("err",error)})
+     axios.request(configObject ).then(() => {}).catch(error=>{console.log("")})
 }
 
 export const createAdminProduct=(token)=>async(dispatch)=>{
@@ -128,7 +124,6 @@ export const createAdminProduct=(token)=>async(dispatch)=>{
      axios.request(configObject ).then((res) => {
          dispatch({type:'CREATE_PRODUCT_SUCCESS',payload:res.data})
      }).catch(error=>{
-         console.log("err",error)
          dispatch({type:'CREATE_PRODUCT_FAIL',
              payload: error.response && error.response.data.detail
                  ? error.response.data.detail
@@ -154,7 +149,6 @@ export const getProductAdminAction=(token,pk)=>async(dispatch)=>{
      axios.request(configObject ).then((res) => {
          dispatch({type:'GET_PRODUCT_DETAIL_ADMIN_SUCCESS',payload:res.data})
      }).catch(error=>{
-         console.log("err",error)
          dispatch({type:'GET_PRODUCT_DETAIL_ADMIN_FAIL',
              payload: error.response && error.response.data.detail
                  ? error.response.data.detail
@@ -173,7 +167,7 @@ export const adminUpdateProductAction=(token,pk,dataObj)=>async(dispatch)=>{
              },
         "data":dataObj
          }
-     axios.request(configObject ).then((res) => {}).catch(error=>{console.log("err",error)})
+     axios.request(configObject ).then((res) => {}).catch(error=>{console.log("")})
 }
 
 export const getOrdersAdminAction=(token)=>async(dispatch)=>{
@@ -194,7 +188,6 @@ export const getOrdersAdminAction=(token)=>async(dispatch)=>{
      axios.request(configObject ).then((res) => {
          dispatch({type:'GET_ORDERS_ADMIN_SUCCESS',payload:res.data})
      }).catch(error=>{
-         console.log("err",error)
          dispatch({type:'GET_ORDERS_ADMIN_FAIL',
              payload: error.response && error.response.data.detail
                  ? error.response.data.detail
@@ -220,7 +213,6 @@ export const getOrderDetailAdminAction=(token,pk)=>async(dispatch)=>{
      axios.request(configObject ).then((res) => {
          dispatch({type:'GET_ORDER_ADMIN_SUCCES',payload:res.data})
      }).catch(error=>{
-         console.log("err",error)
          dispatch({type:'GET_ORDER_ADMIN_FAIL',
              payload: error.response && error.response.data.detail
                  ? error.response.data.detail

@@ -55,7 +55,6 @@ export default function ProductsAdmin() {
             
         }
         if (q!=exq){
-            console.log("q2: ",q)
             dispatch(listProducts(q,pageNumber))
             setExq(q)
         }

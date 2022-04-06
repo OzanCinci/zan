@@ -4,14 +4,10 @@ export const getCartItems = (array)=>async(dispatch)=>{
         let result = []
         dispatch({type:'LOADING'})
         const { data } = await axios.get('/api/products')
-        console.log("karta eklerken: no1 ")
         array.forEach((item)=>{
-            console.log("karta eklerken: no2 ")
             data.forEach(datum=>{
-                console.log("karta eklerken: no3 ")
                 if (item.id==datum._id){
                     result = [...result,{...datum,amount:item.amount}]
-                    console.log("karta eklerken: no err ")
 
                 }
             })
@@ -19,7 +15,6 @@ export const getCartItems = (array)=>async(dispatch)=>{
         dispatch({type:'SUCCES',payload:result})
 
     }catch(err){
-        console.log("karta eklerken: ",err)
         dispatch({type:'ERROR',payload:err})
     }
 }

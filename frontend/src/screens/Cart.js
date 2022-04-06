@@ -46,7 +46,6 @@ export default function Cart() {
   useEffect(()=>{
     setCost(0)
     dispatch(getCartItems(itemIDs))
-    console.log("loop control!")
     CartItemsArray.forEach(item=>setCost(prev=>prev+(item.price*item.amount)))
   },[CartItemsArray.length])
 

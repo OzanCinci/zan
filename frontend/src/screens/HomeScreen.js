@@ -24,7 +24,6 @@ export default function HomeScreen() {
 
     const changePage = (num)=>{
         if (num!=page){
-            console.log("num :",num)
             dispatch(listProducts(q,num))
         }
     }

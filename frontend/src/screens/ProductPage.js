@@ -43,7 +43,6 @@ export default function ProductPage() {
     },[])
 
     const handleAddToCart = () =>{
-        console.log("carta eklemesi lazim")
         dispatch({type:"ADD",payload:{productID:id,amount:amount}})
         setAmount(0)
     }

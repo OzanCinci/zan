@@ -26,7 +26,6 @@ export default function Profile() {
     const {userInfo} = login
     const { currentUser } = profile
     
-    console.log("loop control profile!")
     useEffect(()=>{
         if(!userInfo){
             navigate('/')

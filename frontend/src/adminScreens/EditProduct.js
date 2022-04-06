@@ -72,8 +72,6 @@ export default function EditProduct() {
         }
     }
 
-    
-    console.log("loop control edit-product!")
     useEffect(()=>{
        if (!userInfo.isAdmin){
             navigate('/')

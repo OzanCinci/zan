@@ -23,7 +23,6 @@ export const orderAction=({token,OrderItems,paymentMethod,taxPrice,shippingPrice
         axios.request(configObject ).then((res) => {
             dispatch({type:'ORDER_SUCCES',payload:res.data})
         }).catch(error=>{
-            console.log("err",error)
             dispatch({type:'ORDER_FAIL',
                 payload: error.response && error.response.data.detail
                     ? error.response.data.detail
@@ -47,7 +46,6 @@ export const getOrdersAction=(token)=>async(dispatch)=>{
      axios.request(configObject ).then((res) => {
          dispatch({type:'GET_ORDER_SUCCES',payload:res.data})
      }).catch(error=>{
-         console.log("err",error)
          dispatch({type:'GET_ORDER_FAIL',
              payload: error.response && error.response.data.detail
                  ? error.response.data.detail
