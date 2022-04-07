@@ -58,7 +58,7 @@ class Order(models.Model):
         months = ["January", "February", "March", "April", "May", "June",
                   "July", "August", "September", "October", "November", "December"]
         result = str(self.createdAt.day) + ' ' + \
-            months[self.createdAt.month] + ' '+str(self.createdAt.year)
+            months[self.createdAt.month-1] + ' '+str(self.createdAt.year)
         return str(result)
 
 
