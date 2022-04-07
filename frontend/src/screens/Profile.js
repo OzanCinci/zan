@@ -132,7 +132,7 @@ export default function Profile() {
                     {orders.length==0 && <p>You have no order.</p>}
                     <ListGroup >
                         {orders.map((item,index)=>{
-                            name = `${item.createdAt.slice(8,10)} ${months[parseInt(item.createdAt.slice(5,7))]} ${item.createdAt.slice(0,4)} `
+                            name = `${item.createdAt.slice(8,10)} ${months[parseInt(item.createdAt.slice(5,7)) - 1]} ${item.createdAt.slice(0,4)} `
                             return (
                                 <ListGroup.Item  className='my-2 mx-5' style={{maxWidth:"450px",textAlign:"left"}} key={index}>
                                     <Row>
