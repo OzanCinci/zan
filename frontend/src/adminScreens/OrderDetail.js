@@ -30,7 +30,7 @@ export default function OrderDetail() {
         dispatch(profileAction(userInfo.access))
         dispatch(getOrderDetailAdminAction(userInfo.access,id))
         if (order && order!=[] && order.createdAt){
-            let tmp = `${order.createdAt.slice(8,10)} ${months[parseInt(order.createdAt.slice(5,7))]} ${order.createdAt.slice(0,4)} `
+            let tmp = `${order.createdAt.slice(8,10)} ${months[parseInt(order.createdAt.slice(5,7)) -1]} ${order.createdAt.slice(0,4)} `
             setName(tmp)
         }
     },[currentUser.id,id])
