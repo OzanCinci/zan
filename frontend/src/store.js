@@ -40,7 +40,6 @@ const getCardItemsArray = localStorage.getItem("CartItemsArray")?JSON.parse(loca
 const getUserInfo = localStorage.getItem("userInfo")?JSON.parse(localStorage.getItem("userInfo")):null
 const getAdress = localStorage.getItem("address")?JSON.parse(localStorage.getItem("address")):null
 const getTotalCost = localStorage.getItem("TotalCost")?JSON.parse(localStorage.getItem("TotalCost")):0
-console.log(getTotalCost)
 
 const initialState = {
     login:{userInfo:getUserInfo},

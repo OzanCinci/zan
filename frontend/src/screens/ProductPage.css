@@ -29,3 +29,34 @@
   grid-template-rows: 1fr 1fr 1fr;
   gap: 2px;
 }
+#pop-up-cart{
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 2;
+  display: block;
+  position: fixed;
+  top :100px;
+  right: 10px;
+  width: 80vw;
+  max-width: 300px;
+  min-height: 400px;
+  max-height: 450px;
+  opacity: 0.95;
+  background-color: #919aa1;
+  background-color: #e8eaec;
+  border: 2px solid black;
+  text-align: left;
+}
+
+#close-cart-btn{
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+#header-cart{
+  color: blue;
+}
+#deleteBtn{
+  background-color: red;
+  border: 50%;
+}

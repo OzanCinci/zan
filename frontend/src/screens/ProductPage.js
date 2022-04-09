@@ -8,20 +8,29 @@ import './ProductPage.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProductDetails } from '../actions/productActions'
 import { AddReviewAction } from '../actions/reviewActions'
+import { getCartItems } from '../actions/cartActions'
 
 
 export default function ProductPage() {
     const [amount,setAmount] = useState(1)
+    const [money,setMoney] = useState(0)
     const {id} = useParams()
     const navigate = useNavigate()
 
+    const [init,setInit] = useState(true)
     const [rating,setRating] = useState(5)
     const [comment,setComment] = useState('')
+    const [showCart,setShowCart] = useState(false)
 
     const dispatch = useDispatch()
     const producDetail = useSelector(state=>state.producDetail)
     const login = useSelector(state=>state.login)
-    const reviewReducer = useSelector(state=>state.reviewReducer)
+    
+    
+    const Cart = useSelector(state=>state.Cart)
+    const CartItems = useSelector(state=>state.CartItems)
+    const {CartItemsArray,TotalCost} = CartItems
+    const {itemIDs} = Cart
 
     const {userInfo} = login
     const {loading,error,products} = producDetail 
@@ -31,7 +40,6 @@ export default function ProductPage() {
         navigate('/login')
     }
 
-
     let reviews=[]
     if(products){
         reviews = products.reviews
@@ -39,12 +47,35 @@ export default function ProductPage() {
     const product = products
 
     useEffect(()=>{
-        dispatch(listProductDetails(id))
-    },[])
+        if(init){
+            dispatch(listProductDetails(id))
+            setInit(false)
+            dispatch(getCartItems(itemIDs))
+        }
+        setMoney(0)
+        
+        CartItemsArray.forEach(item=>{
+            setMoney(prev=>prev+(item.amount*item.price))
+        })
+
+        
+    },[CartItemsArray.length])
+
+    const handleDelete = (item) =>{
+        dispatch({type:"DELETE",payload:item._id})
+        dispatch({type:"DEL",payload:item._id})
+        if(money==0){
+            setShowCart(false)
+        }
+    }
 
     const handleAddToCart = () =>{
         dispatch({type:"ADD",payload:{productID:id,amount:amount}})
         setAmount(0)
+        dispatch({type:"INC",payload:product._id})
+        dispatch({type:"COST",payload:product.price * amount})
+        dispatch(getCartItems(itemIDs))
+        setShowCart(true)
     }
 
     const handleAddReview = (e) =>{
@@ -62,10 +93,48 @@ export default function ProductPage() {
     }
 
   return (
-    <div>
-        <LinkContainer  to='/'>
-            <Button id='goback-btn' variant="outline-secondary">Go Back</Button>
-        </LinkContainer>
+    <div >
+        {<div id='pop-up-cart' style={{overflowY:CartItemsArray.length>3?"scroll":"hidden",transition: 'all 1.3s ease-in-out',transform:showCart? 'translateX(-5%)' : 'translateX(300%)'}}>
+        <Row>
+            <Col className='my-2 mx-2'>
+                <div id='close-cart-btn'style={{cursor:'pointer',color:'black'}} onClick={()=>navigate('/cart')}>go cart page</div>
+            </Col>
+            <Col className='my-2 mx-2'>
+                <div id='close-cart-btn' style={{cursor:'pointer',color:'black',textAlign:"right"}} onClick={()=>setShowCart(false)}>close</div>
+            </Col>
+        </Row >
+
+        <Row>
+            <div id='header-cart'><h4>Your Cart<i className="fa-solid fa-arrow-right-long"></i>${money.toFixed(2)}</h4></div>
+            <ListGroup>
+                {CartItemsArray.map((item,index)=>{
+                    let nameList = item.name.split(' ')
+                    const min = 4<nameList.length ? 4 : nameList.length
+                    const cartName = nameList.slice(0,min).join(' ')
+                    return (
+                        <ListGroup.Item key={index} variant='flush' style={{backgroundColor:'#e8eaec',border:"none"}}>
+                            <Row>
+                                <Col>
+                                    <Image fluid sm={3} src={item.image}></Image>
+                                </Col>
+                                <Col sm={6}>
+                                    <Row className='my-1' style={{color:'#6e1715'}}>
+                                        {cartName}
+                                    </Row>
+                                    <Row>
+                                        <small>{item.amount}x${item.price}=${(item.price * item.amount).toFixed(2)}</small>
+                                    </Row>
+                                </Col>
+                                <Col sm={3}>
+                                    <Button onClick={()=>handleDelete(item)} variant='danger'>X</Button>
+                                </Col>
+                            </Row>
+                        </ListGroup.Item>
+                    )
+                })}    
+            </ListGroup>
+        </Row>
+        </div>}
         {product&& <h4>{product.name}</h4>}
     
         {loading? <p>Loading...</p>:error?<p>{error}</p>: product&&
@@ -126,7 +195,7 @@ export default function ProductPage() {
                             </ListGroup.Item>
 
                             <ListGroup.Item>
-                                {(product.countInStock>0) && <Button onClick={()=>handleAddToCart()} variant="outline-dark">Add to Cart</Button>}
+                                {(product.countInStock>0) && <Button disabled={amount==0} onClick={()=>handleAddToCart()} variant="outline-dark">Add to Cart</Button>}
                                 {!(product.countInStock>0) && <Button disabled variant="outline-dark"><s>Add to Cart</s></Button>}
                             </ListGroup.Item>
                         </ListGroup>

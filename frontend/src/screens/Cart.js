@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import { getCartItems, handleDECactions, handleDeleteactions, handleINCactions } from '../actions/cartActions'
 import './Cart.css'
-import { LinkContainer } from 'react-router-bootstrap'
 
 export default function Cart() {
   const nav = useNavigate()
