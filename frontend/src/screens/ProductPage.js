@@ -75,6 +75,7 @@ export default function ProductPage() {
         dispatch({type:"INC",payload:product._id})
         dispatch({type:"COST",payload:product.price * amount})
         dispatch(getCartItems(itemIDs))
+
         setShowCart(true)
     }
 
@@ -115,9 +116,9 @@ export default function ProductPage() {
                         <ListGroup.Item key={index} variant='flush' style={{backgroundColor:'#e8eaec',border:"none"}}>
                             <Row>
                                 <Col>
-                                    <Image fluid sm={3} src={item.image}></Image>
+                                    <Image fluid xs={3} src={item.image}></Image>
                                 </Col>
-                                <Col sm={6}>
+                                <Col xs={6}>
                                     <Row className='my-1' style={{color:'#6e1715'}}>
                                         {cartName}
                                     </Row>
@@ -125,7 +126,7 @@ export default function ProductPage() {
                                         <small>{item.amount}x${item.price}=${(item.price * item.amount).toFixed(2)}</small>
                                     </Row>
                                 </Col>
-                                <Col sm={3}>
+                                <Col xs={3}>
                                     <Button onClick={()=>handleDelete(item)} variant='danger'>X</Button>
                                 </Col>
                             </Row>
