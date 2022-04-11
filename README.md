@@ -6,6 +6,7 @@ You can visit and experience it -> [https://zanshop.herokuapp.com/](https://zans
 ### zanShop utilizes:
 * React Framework
 * React Bootstrap
+* Redux
 * Django Rest Framework
 * Simple JWT Authentication
 * AWS RDS and S3 Bucket for database.
