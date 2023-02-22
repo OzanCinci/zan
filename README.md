@@ -3,7 +3,7 @@ zanShop is a functional eCommerce website using React and Django Rest Framework.
 
 ~~You can visit and experience it -> [https://zanshop.herokuapp.com/](https://zanshop.herokuapp.com/)~~
 
-Heroku has stopped providing free hosting. The link does not work anymore :(  
+Heroku has stopped providing free hosting. The link does not work anymore :(  But you can keep reading for detailed explanation of the project.
 
 ### zanShop utilizes:
 * React Framework
